@@ -7,20 +7,45 @@
  * 4. Add comments and Javadoc comments where needed
  * 5. Remove unnecessary comments as appropriate
  */
-
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+/**
+ *
+ */
+public class ReclamationProject {
+    /**
+     *
+     * @param a adds a string a
+     * @param b adds a string b
+     * @return string
+     */
+    public static String doit(final String a, final String b) {
+        String shortString = a;
+        String longString = b;
+        if (shortString.length() > longString.length()) {
+            String c = shortString;
+            shortString = longString;
+            longString = c;
+        }
+        String r = "";
+        if (shortString == longString) {
+            return shortString;
+        } else {
+        for (int i = 0; i < shortString.length(); i++) {
+            for (int j = shortString.length() - i; j > 0; j--) {
+                for (int k = 0; k < longString.length() - j; k++) {
+                   if (shortString.regionMatches(i, longString, k, j) && j > r.length()) {
+                      r = shortString.substring(i, i + j);
+                   }
+                }
+            }
+        }
+        return r;
+        }
+    }
+    /**
+     *
+     * @param args runs doit
+     */
+    public static void main(final String[] args) {
+        System.out.print(doit("This is my lab", "This is a lab"));
+    }
 }
