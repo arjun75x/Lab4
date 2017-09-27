@@ -46,6 +46,6 @@ public class ReclamationProject {
      * @param args runs doit
      */
     public static void main(final String[] args) {
-        System.out.print(doit("This is my lab", "This is a lab")); //should output This is
+        System.out.print(doit("This is my lab", "This is a lab")); //should output "This is"
     }
 }
